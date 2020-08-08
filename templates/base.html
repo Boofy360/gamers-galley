@@ -15,39 +15,39 @@
 
     <header>
     <!-- top nav -->
-      <nav class="nav-extended teal darken-1">
-    <div class="nav-wrapper">
-      <a href="{{ url_for('get_reviews') }}" class="brand-logo">Gamer's Galley</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="{{ url_for('get_reviews') }}">Home</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Add Review</a></li>
-        <li><a href="#">Log In</a></li>
-        <li><a href="#">Log Out</a></li>
-        <li><a href="#">Register</a></li>
-      </ul>
-    </div>
-  </nav>
+    <nav class="nav-extended teal darken-1">
+        <div class="nav-wrapper">
+            <a href="{{ url_for('get_reviews') }}" class="brand-logo">Gamer's Galley</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{{ url_for('get_reviews') }}">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Add Review</a></li>
+                <li><a href="#">Log In</a></li>
+                <li><a href="#">Log Out</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+            </ul>
+        </div>
+    </nav>
   
-  <!-- mobile sidenav -->
-  <ul class="sidenav" id="mobile-demo">
-    <li><h4 class="center-align teal-text text-darken-4">Review Manager</h4></li>
-    <li><a href="{{ url_for('get_reviews') }}">Home</a></li>
-    <li><a href="#">Add Review</a></li>
-    <!-- dropdown trigger -->
-    <li><a class="dropdown-trigger" href="#" data-target="dropdown1">Account Settings<i class="fas fa-caret-down right"></i></a></li>
-    <li><a href="#">Register</a></li>
-  </ul>
+    <!-- mobile sidenav -->
+    <ul class="sidenav" id="mobile-demo">
+        <li><h4 class="center-align teal-text text-darken-4">Review Manager</h4></li>
+        <li><a href="{{ url_for('get_reviews') }}">Home</a></li>
+        <li><a href="#">Add Review</a></li>
+        <!-- dropdown trigger -->
+        <li><a class="dropdown-trigger" href="#" data-target="dropdown1">Account Settings<i class="fas fa-caret-down right"></i></a></li>
+        <li><a href="{{ url_for('register') }}">Register</a></li>
+    </ul>
 
-  <!-- dropdown structure -->
-  <ul id="dropdown1" class="dropdown-content">
-    <li><a href="#">Profile</a></li>
-    <li class="divider"></li>
-    <li><a href="#">Log In</a></li>
-    <li class="divider"></li>
-    <li><a href="#">Log Out</a></li>
-  </ul>
+    <!-- dropdown structure -->
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#">Profile</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Log In</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Log Out</a></li>
+    </ul>
     </header>
 
     {% block content %}
