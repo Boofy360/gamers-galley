@@ -103,7 +103,8 @@ def logout():
 
 @app.route("/add_review")
 def add_review():
-    return render_template("add_review.html")
+    games = mongo.db.games.find().sort("game_title", 1)
+    return render_template("add_review.html", games=games)
 
 
 if __name__ == "__main__":

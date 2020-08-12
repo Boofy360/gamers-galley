@@ -4,9 +4,21 @@
     <h3 class="teal-text text-darken-4 center-align">Add Review</h3>
 
     <div class="row card-panel grey lighten-5">
-        <form class="col s12">
+        <form class="col s12" method="POST" action="">
             <div class="row">
-                <div class="input-field col s12" method="POST" action="">
+                <div class="input-field col s12">
+                    <i class="fas fa-gamepad prefix teal-text text-darken-4"></i>
+                    <select id="game_title" name="game_title" class="validate" required>
+                        <option value="" disabled selected>Choose Game</option>
+                        {% for game in games %}
+                            <option value="{{ game.game_title }}">{{ game.game_title }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="game_title">Game Title</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
                     <i class="fas fa-heading prefix teal-text text-darken-4"></i>
                     <input id="headline" name="headline" minlength="5" maxlength="50" 
                     type="text" class="validate" required>
