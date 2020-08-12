@@ -1,14 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
 
-    {% for review in reviews %}
-        {{ review }}
-        {{ review.game_title }}<br>
-        {{ review.user_name }}<br>
-        {{ review.headline }}<br>
-        {{ review.review }}<br>
-        {{ review.rating }}<br>
-        {{ review.date }}<br>
-    {% endfor %}
+    <ul class="collapsible">
+        {% for game in games %}
+        <li>
+            <div class="collapsible-header white-text teal darken-4">
+                <i class="fas fa-caret-down"></i>
+                {{ game.game_title }}<br>
+                {{ game.age_rating }}<br>
+                {{ game.release_date }}<br>
+                {{ game.available_platforms }}
+            </div>
+            {% for review in reviews %}
+            {% if game.game_title == review.game_title %}
+            <div class="collapsible-body">
+            <h5>{{ review.headline }}</h5><br>
+            <strong>User: {{ review.user_name }}</strong><br>
+            <p>{{ review.review }}</p><br>
+            {{ review.rating }}/100<br>
+            {{ review.date }}
+            </div>
+            {% endif %}
+            {% endfor %}
+        </li>
+        {% endfor %}
+    </ul>
 
 {% endblock %}

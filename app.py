@@ -18,12 +18,13 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-
+# get game and reviews from db
 @app.route("/")
-@app.route("/get_reviews")
-def get_reviews():
-    reviews = mongo.db.reviews.find()
-    return render_template("reviews.html", reviews=reviews)
+@app.route("/get_game_reviews")
+def get_game_reviews():
+    reviews = list(mongo.db.reviews.find())
+    games = list(mongo.db.games.find())
+    return render_template("reviews.html", reviews=reviews, games=games)
 
 
 @app.route('/register', methods=["GET", "POST"])
