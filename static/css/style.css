@@ -34,3 +34,7 @@ h3 {
         width: 92%;
         width: calc(100% - 3rem);
     }
+
+.select-dropdown {
+    color: white;
+}

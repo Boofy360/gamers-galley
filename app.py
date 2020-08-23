@@ -103,6 +103,7 @@ def logout():
 
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
+    # add review to db
     if request.method == "POST":
         review = {
             "game_title": request.form.get("game_title"),
@@ -118,6 +119,13 @@ def add_review():
 
     games = mongo.db.games.find().sort("game_title", 1)
     return render_template("add_review.html", games=games)
+
+
+@app.route("/edit_review/<review_id>", methods=["GET", "POST"])
+def edit_review(review_id):
+    review = mongo.db.review.find_one({"_id": ObjectId(review_id)})
+    games = mongo.db.games.find().sort("game_title", 1)
+    return render_template("edit_review.html", review=review, games=games)
 
 
 if __name__ == "__main__":

@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="white-text center-align">Add Review</h3>
+    <h3 class="white-text center-align">Edit Review</h3>
 
     <div class="row card-panel grey darken-4">
-        <form class="col s12" method="POST" action="{{ url_for('add_review') }}">
+        <form class="col s12" method="POST" action="{{ url_for('edit_review', review_id=review._id) }}">
             <!-- game title selection -->
             <div class="row">
                 <div class="input-field col s12">
@@ -56,7 +56,7 @@
             <div class="row">
                 <div class="col s12 center-align">
                     <button type="submit" class="btn-large grey darken-3">
-                        Add Review <i class="fas fa-plus-square right"></i>
+                        Edit Review <i class="fas fa-edit right"></i>
                     </button>
                 </div>
             </div>
