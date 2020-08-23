@@ -38,3 +38,7 @@ h3 {
 .select-dropdown {
     color: white;
 }
+
+.select-wrapper svg.caret path:first-child {
+    fill: white;
+}
