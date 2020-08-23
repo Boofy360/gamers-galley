@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="white-text center-align">Manage Games</h3>
+
+    <div class="row">
+        {% for game in games %}
+            <div class="col s12 m3">
+                <div class="card grey darken-4 center-align">
+                    <div class="card-content white-text">
+                        <span class="card-title">{{ game.game_title }}</span>
+                        {{ game.age_rating }}<br>
+                        {{ game.release_date }}<br>
+                        {{ game.available_platforms }}
+                    </div>
+                    <div class="card-action">
+                        <a href="#" class="btn red">Remove</a>
+                        <a href="#" class="btn light-blue accent-3">Edit</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

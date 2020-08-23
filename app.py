@@ -148,6 +148,12 @@ def delete_review(review_id):
     return redirect(url_for("get_game_reviews"))
 
 
+@app.route('/get_game_titles')
+def get_game_titles():
+    games = list(mongo.db.games.find().sort("game_title", 1))
+    return render_template("games.html", games=games)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
