@@ -1,5 +1,23 @@
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/dark-background-golden-detail.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 .flashes h4 {
     line-height: 2;
+}
+
+h3 {
+    margin: 0;
+    padding: 50px 0 25px 0;
+}
+
+.collapsible, .collapsible-body, .collapsible-header {
+    border-color: yellow
 }
 
 .input-field .prefix ~ .range-field {

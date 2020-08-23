@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="teal-text text-darken-4 center-align">Game Reviews</h3>
+    <h3 class="white-text center-align">Game Reviews</h3>
 
     <ul class="collapsible">
         {% for game in games %}
         <li>
-            <div class="collapsible-header white-text teal darken-4">
+            <div class="collapsible-header white-text grey darken-4">
                 <i class="fas fa-caret-down"></i>
                 {{ game.game_title }}<br>
                 {{ game.age_rating }}<br>
@@ -15,7 +15,7 @@
             </div>
             {% for review in reviews %}
             {% if game.game_title == review.game_title %}
-            <div class="collapsible-body">
+            <div class="collapsible-body white-text grey darken-3">
             <h5>{{ review.headline }}</h5><br>
             <strong>User: {{ review.created_by }}</strong><br>
             <p>{{ review.review }}</p><br>

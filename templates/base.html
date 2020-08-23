@@ -15,7 +15,7 @@
 
     <header>
     <!-- top nav -->
-    <nav class="nav-extended teal darken-1">
+    <nav class="nav-extended grey darken-4">
         <div class="nav-wrapper">
             <a href="{{ url_for('get_game_reviews') }}" class="brand-logo">Gamer's Galley</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
@@ -34,26 +34,29 @@
     </nav>
   
     <!-- mobile sidenav -->
-    <ul class="sidenav" id="mobile-demo">
-        <li><h4 class="center-align teal-text text-darken-4">Review Manager</h4></li>
-        <li><a href="{{ url_for('get_game_reviews') }}">Home</a></li>
+    <ul class="sidenav grey darken-4" id="mobile-demo">
+        <li><h4 class="center-align white-text">Review Manager</h4></li>
+        <li class="divider"></li>
+        <li><a href="{{ url_for('get_game_reviews') }}" class="white-text">Home</a></li>
+        <li class="divider"></li>
         {% if session.user %}
-            <li><a href="{{ url_for('add_review') }}">Add Review</a></li>
+            <li><a href="{{ url_for('add_review') }}" class="white-text">Add Review</a></li>
+            <li class="divider"></li>
             <!-- dropdown trigger -->
-            <li><a class="dropdown-trigger" href="#" data-target="dropdown1">Account Settings<i class="fas fa-caret-down right"></i></a></li>
+            <li><a class="dropdown-trigger white-text" href="#" data-target="dropdown1">Account Settings<i class="white-text fas fa-caret-down right"></i></a></li>
         {% else %}
-            <li><a href="{{ url_for('login') }}">Log In</a></li>
-            <li><a href="{{ url_for('register') }}">Register</a></li>
+            <li><a href="{{ url_for('login') }}" class="white-text">Log In</a></li>
+            <li class="divider"></li>
+            <li><a href="{{ url_for('register') }}" class="white-text">Register</a></li>
         {% endif %}
     </ul>
 
     <!-- dropdown structure -->
-    <ul id="dropdown1" class="dropdown-content">
+    <ul id="dropdown1" class="dropdown-content grey darken-3">
         {% if session.user %}
-            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+            <li><a href="{{ url_for('profile', username=session['user']) }}" class="white-text">Profile</a></li>
             <li class="divider"></li>
-            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-            <li class="divider"></li>
+            <li><a href="{{ url_for('logout') }}" class="white-text">Log Out</a></li>
         {% endif %}
     </ul>
     </header>
@@ -64,7 +67,7 @@
             {% if messages %}
                 {% for message in messages %}
                 <div class="row flashes">
-                    <h4 class="teal lighten-4 center-align">{{ message }}</h4>
+                    <h4 class="white-text center-align">{{ message }}</h4>
                 </div>
                 {% endfor %}
             {% endif %}
