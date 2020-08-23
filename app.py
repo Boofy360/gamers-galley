@@ -154,6 +154,22 @@ def get_game_titles():
     return render_template("games.html", games=games)
 
 
+@app.route("/add_game_title", methods=["GET", "POST"])
+def add_game_title():
+    if request.method == "POST":
+        game = {
+            "game_title": request.form.get("game_title"),
+            "release_date": request.form.get("release_date"),
+            "age_rating": request.form.get("age_rating"),
+            "available_platforms": request.form.get("available_platforms")
+        }
+        mongo.db.games.insert_one(game)
+        flash("New Game Added")
+        return redirect(url_for("get_game_titles"))
+
+    return render_template("add_game.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

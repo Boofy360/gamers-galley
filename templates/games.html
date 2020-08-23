@@ -4,6 +4,14 @@
     <h3 class="white-text center-align">Manage Games</h3>
 
     <div class="row">
+        <div class="col s12 center-align">
+            <a href="{{ url_for('add_game_title') }}" class="btn-large grey darken-3">
+                Add Game <i class="fas fa-plus-square right"></i>
+            </a>
+        </div>
+    </div>
+ 
+    <div class="row">
         {% for game in games %}
             <div class="col s12 m3">
                 <div class="card grey darken-4 center-align">
@@ -14,8 +22,8 @@
                         {{ game.available_platforms }}
                     </div>
                     <div class="card-action">
-                        <a href="#" class="btn red">Remove</a>
                         <a href="#" class="btn light-blue accent-3">Edit</a>
+                        <a href="#" class="btn red">Remove</a>
                     </div>
                 </div>
             </div>

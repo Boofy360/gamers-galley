@@ -43,6 +43,6 @@ h3 {
     fill: white;
 }
 
-select#game_title.validate {
+select.validate {
     display: none !important;
 }

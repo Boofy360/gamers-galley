@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="white-text center-align">Add Game</h3>
+
+    <div class="row card-panel grey darken-4">
+        <form class="col s12" method="POST" action="{{ url_for('add_game_title') }}">
+            <!-- game title -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-gamepad prefix white-text"></i>
+                    <input id="game_title" name="game_title" minlength="3" maxlength="25" 
+                    type="text" class="white-text validate" required>
+                    <label for="game_title">Game Title</label>
+                </div>
+            </div>
+            <!-- date picker -->
+            <div class="input-field col s12">
+                <i class="fas fa-calendar-alt prefix white-text"></i>
+                <input id="release_date" name="release_date" type="text" class="white-text datepicker validate" required>
+                <label for="release_date">Release Date</label>
+            </div>
+            <!-- age rating radio buttons -->
+            <label for="age_rating">Age Rating</label>
+            <p>
+                <label>
+                    <input value="!" name="age_rating" type="radio" class="with-gap">
+                    <span>!</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input value="3+" name="age_rating" type="radio" class="with-gap">
+                    <span>3+</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input value="7+" name="age_rating" type="radio" class="with-gap">
+                    <span>7+</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input value="12+" name="age_rating" type="radio" class="with-gap">
+                    <span>12+</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input value="16+" name="age_rating" type="radio" class="with-gap">
+                    <span>16+</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input value="18+" name="age_rating" type="radio" class="with-gap">
+                    <span>18+</span>
+                </label>
+            </p>
+            <!-- available platforms selection -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-dice-six prefix white-text"></i>
+                    <select id="available_platforms" name="available_platforms" class="validate" required>
+                    <option value="" disabled selected>Choose Platform</option>
+                    <optgroup label="Consoles">
+                        <option value="Wii">Wii</option>
+                        <option value="PlayStation">PlayStation</option>
+                        <option value="Xbox">Xbox</option>
+                        <option value="Nintendo">Nintendo</option>
+                    </optgroup>
+                    <optgroup label="PC">
+                        <option value="Windows">Windows</option>
+                        <option value="Mac OS X">Mac OS X</option>
+                    </optgroup>
+                    <optgroup label="Mobile">
+                        <option value="Android">Android</option>
+                        <option value="iOS">iOS</option>
+                        <option value="Windows Phone">Windows Phone</option>
+                    </optgroup>
+                    </select>
+                    <label for="available_platforms">Available Platforms</label>
+                </div>
+            </div>
+            <!-- submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large grey darken-3">
+                        Add Game <i class="fas fa-plus-square right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
