@@ -16,6 +16,15 @@ h3 {
     padding: 50px 0 25px 0;
 }
 
+.btn-small {
+    margin:5px;
+    float: right;
+}
+
+.collapsible-header {
+    line-height: 42px;
+}
+
 .collapsible, .collapsible-body, .collapsible-header {
     border-color: yellow
 }
