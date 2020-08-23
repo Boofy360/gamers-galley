@@ -42,3 +42,7 @@ h3 {
 .select-wrapper svg.caret path:first-child {
     fill: white;
 }
+
+select#game_title.validate {
+    display: none !important;
+}
