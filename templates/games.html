@@ -22,7 +22,7 @@
                         {{ game.available_platforms }}
                     </div>
                     <div class="card-action">
-                        <a href="#" class="btn light-blue accent-3">Edit</a>
+                        <a href="{{ url_for('edit_game', game_id=game._id) }}" class="btn light-blue accent-3">Edit</a>
                         <a href="#" class="btn red">Remove</a>
                     </div>
                 </div>

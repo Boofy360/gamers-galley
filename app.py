@@ -18,10 +18,11 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-# get game and reviews from db
+
 @app.route("/")
 @app.route("/get_game_reviews")
 def get_game_reviews():
+    # get game and reviews from db
     reviews = list(mongo.db.reviews.find())
     games = list(mongo.db.games.find())
     return render_template("reviews.html", reviews=reviews, games=games)
@@ -143,6 +144,7 @@ def edit_review(review_id):
 
 @app.route("/delete_review/<review_id>")
 def delete_review(review_id):
+    # delete review in db
     mongo.db.reviews.remove({"_id": ObjectId(review_id)})
     flash("Review Successfully Deleted")
     return redirect(url_for("get_game_reviews"))
@@ -150,12 +152,14 @@ def delete_review(review_id):
 
 @app.route('/get_game_titles')
 def get_game_titles():
+    # get games from db
     games = list(mongo.db.games.find().sort("game_title", 1))
     return render_template("games.html", games=games)
 
 
 @app.route("/add_game_title", methods=["GET", "POST"])
 def add_game_title():
+    # add game to db
     if request.method == "POST":
         game = {
             "game_title": request.form.get("game_title"),
@@ -168,6 +172,24 @@ def add_game_title():
         return redirect(url_for("get_game_titles"))
 
     return render_template("add_game.html")
+
+
+@app.route("/edit_game/<game_id>", methods=["GET", "POST"])
+def edit_game(game_id):
+    # update game in db
+    if request.method == "POST":
+        submit = {
+            "game_title": request.form.get("game_title"),
+            "release_date": request.form.get("release_date"),
+            "age_rating": request.form.get("age_rating"),
+            "available_platforms": request.form.get("available_platforms")
+        }
+        mongo.db.games.update({"_id": ObjectId(game_id)}, submit)
+        flash("Game Successfully Updated")
+        return redirect(url_for("get_game_titles"))
+
+    game = mongo.db.games.find_one({"_id": ObjectId(game_id)})
+    return render_template("edit_game.html", game=game)
 
 
 if __name__ == "__main__":

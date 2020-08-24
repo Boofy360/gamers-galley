@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="white-text center-align">Edit Game</h3>
+
+    <div class="row card-panel grey darken-4">
+        <form class="col s12" method="POST" action="{{ url_for('edit_game', game_id=game._id) }}">
+            <!-- game title -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-gamepad prefix white-text"></i>
+                    <input id="game_title" name="game_title" minlength="3" maxlength="25" 
+                        value="{{- game.game_title -}} " type="text" class="white-text validate" required>
+                    <label for="game_title">Game Title</label>
+                </div>
+            </div>
+            <!-- date picker -->
+            <div class="input-field col s12">
+                <i class="fas fa-calendar-alt prefix white-text"></i>
+                <input id="release_date" name="release_date" type="text" 
+                    value="{{ game.release_date }}" class="white-text datepicker validate" required>
+                <label for="release_date">Release Date</label>
+            </div>
+            <!-- age rating radio buttons -->
+            <label for="age_rating">Age Rating</label>
+            {% if game.age_rating == "!" %}
+            <p>
+                <label>
+                    <input value="!" name="age_rating" type="radio" class="with-gap" checked>
+                    <span>!</span>
+                </label>
+            </p>
+            {% else %}
+            <p>
+                <label>
+                    <input value="!" name="age_rating" type="radio" class="with-gap">
+                    <span>!</span>
+                </label>
+            </p>
+            {% endif %}
+            {% if game.age_rating == "3+" %}
+            <p>
+                <label>
+                    <input value="3+" name="age_rating" type="radio" class="with-gap" checked>
+                    <span>3+</span>
+                </label>
+            </p>
+            {% else %}
+            <p>
+                <label>
+                    <input value="3+" name="age_rating" type="radio" class="with-gap">
+                    <span>3+</span>
+                </label>
+            </p>
+            {% endif %}
+            {% if game.age_rating == "7+" %}
+            <p>
+                <label>
+                    <input value="7+" name="age_rating" type="radio" class="with-gap" checked>
+                    <span>7+</span>
+                </label>
+            </p>
+            {% else %}
+            <p>
+                <label>
+                    <input value="7+" name="age_rating" type="radio" class="with-gap">
+                    <span>7+</span>
+                </label>
+            </p>
+            {% endif %}
+            {% if game.age_rating == "12+" %}
+            <p>
+                <label>
+                    <input value="12+" name="age_rating" type="radio" class="with-gap" checked>
+                    <span>12+</span>
+                </label>
+            </p>
+            {% else %}
+            <p>
+                <label>
+                    <input value="12+" name="age_rating" type="radio" class="with-gap">
+                    <span>12+</span>
+                </label>
+            </p>
+            {% endif %}
+            {% if game.age_rating == "16+" %}
+            <p>
+                <label>
+                    <input value="16+" name="age_rating" type="radio" class="with-gap" checked>
+                    <span>16+</span>
+                </label>
+            </p>
+            {% else %}
+            <p>
+                <label>
+                    <input value="16+" name="age_rating" type="radio" class="with-gap">
+                    <span>16+</span>
+                </label>
+            </p>
+            {% endif %}
+            {% if game.age_rating == "18+" %}
+            <p>
+                <label>
+                    <input value="18+" name="age_rating" type="radio" class="with-gap" checked>
+                    <span>18+</span>
+                </label>
+            </p>
+            {% else %}
+            <p>
+                <label>
+                    <input value="18+" name="age_rating" type="radio" class="with-gap">
+                    <span>18+</span>
+                </label>
+            </p>
+            {% endif %}
+            <!-- available platforms selection -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-dice-six prefix white-text"></i>
+                    <select id="available_platforms" name="available_platforms" class="validate" required>
+                    <option disabled selected>Choose Platform</option>
+                    <optgroup label="Consoles">
+                    {% if game.available_platforms == "Wii" %}
+                        <option value="Wii" selected>Wii</option>
+                        {% else %}
+                        <option value="Wii">Wii</option>
+                    {% endif %}
+                    {% if game.available_platforms == "PlayStation" %}
+                        <option value="PlayStation" selected>PlayStation</option>
+                        {% else %}
+                        <option value="PlayStation">PlayStation</option>
+                    {% endif %}
+                    {% if game.available_platforms == "Xbox" %}
+                        <option value="Xbox" selected>Xbox</option>
+                        {% else %}
+                        <option value="Xbox">Xbox</option>
+                    {% endif %}
+                    {% if game.available_platforms == "Nintendo" %}
+                        <option value="Nintendo" selected>Nintendo</option>
+                        {% else %}
+                        <option value="Nintendo">Nintendo</option>
+                    {% endif %}
+                    </optgroup>
+                    <optgroup label="PC">
+                    {% if game.available_platforms == "Windows" %}
+                        <option value="Windows" selected>Windows</option>
+                        {% else %}
+                        <option value="Windows">Windows</option>
+                    {% endif %}
+                    {% if game.available_platforms == "Mac OS X" %}
+                        <option value="Mac OS X" selected>Mac OS X</option>
+                        {% else %}
+                        <option value="Mac OS X">Mac OS X</option>
+                    {% endif %}
+                    </optgroup>
+                    <optgroup label="Mobile">
+                    {% if game.available_platforms == "Android" %}
+                        <option value="Android" selected>Android</option>
+                        {% else %}
+                        <option value="Android">Android</option>
+                    {% endif %}
+                    {% if game.available_platforms == "iOS" %}
+                        <option value="iOS" selected>iOS</option>
+                        {% else %}
+                        <option value="iOS">iOS</option>
+                    {% endif %}
+                    {% if game.available_platforms == "Windows Phone" %}
+                        <option value="Windows Phone" selected>Windows Phone</option>
+                        {% else %}
+                        <option value="Windows Phone">Windows Phone</option>
+                    {% endif %}
+                    </optgroup>
+                    </select>
+                    <label for="available_platforms">Available Platforms</label>
+                </div>
+            </div>
+            <!-- submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <a href="{{ url_for('get_game_titles') }}" class="btn-large red">
+                        Cancel <i class="fas fa-times-circle right"></i>
+                    </a>
+                    <button type="submit" class="btn-large grey darken-3">
+                        Edit Game <i class="fas fa-edit right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
