@@ -192,6 +192,14 @@ def edit_game(game_id):
     return render_template("edit_game.html", game=game)
 
 
+@app.route("/delete_game/<game_id>")
+def delete_game(game_id):
+    # delete game in db
+    mongo.db.games.remove({"_id": ObjectId(game_id)})
+    flash("Game Successfully Deleted")
+    return redirect(url_for("get_game_titles"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
