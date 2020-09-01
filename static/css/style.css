@@ -14,6 +14,7 @@ body {
 h3 {
     margin: 0;
     padding: 50px 0 25px 0;
+    cursor: default;
 }
 
 .btn-small {
@@ -22,18 +23,19 @@ h3 {
 }
 
 .collapsible-header {
-    line-height: 42px;
+    line-height: 20px;
+    display: block;
 }
 
 .collapsible, .collapsible-body, .collapsible-header {
     border-color: yellow
 }
 
+/* CSS fix for the range field icon by https://github.com/Dogfalo/materialize/issues/5877 */
 .input-field .prefix ~ .range-field {
-        margin-left: 3rem;
-        width: 92%;
-        width: calc(100% - 3rem);
-    }
+    margin-left: 3rem;
+    width: calc(100% - 3rem);
+}
 
 .select-dropdown {
     color: white;
@@ -46,3 +48,24 @@ h3 {
 select.validate {
     display: none !important;
 }
+
+.card-panel p {
+    margin-top: 2rem;
+}
+
+.row p {
+    margin-left: 3rem;
+}
+
+.card-content p {
+    line-height: 2rem;
+}
+
+.datepicker-controls input {
+    color: black;
+}
+
+@media only screen and (min-width: 993px) {
+nav .brand-logo {
+    padding-left: 16px;
+}}

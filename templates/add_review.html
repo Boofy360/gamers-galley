@@ -33,7 +33,7 @@
                     <i class="fas fa-align-left prefix white-text"></i>
                     <textarea id="review" name="review" minlength="5" 
                     maxlength="500" class="materialize-textarea white-text validate" required></textarea>
-                    <label for="review">Review</label>
+                    <label for="review">Review (maximum characters 500)</label>
                 </div>
             </div>
             <div class="row">
@@ -58,6 +58,13 @@
                     <button type="submit" class="btn-large grey darken-3">
                         Add Review <i class="fas fa-plus-square right"></i>
                     </button>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <p class="center-align white-text">
+                        Unable to locate the game you are looking for? <a href="{{ url_for('add_game_title') }}">Add it</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </form>
