@@ -213,4 +213,4 @@ def delete_game(game_id):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP", "0.0.0.0"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
